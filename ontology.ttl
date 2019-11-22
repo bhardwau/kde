@@ -1,0 +1,321 @@
+@prefix : <http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat> .
+
+<http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://countrystats.org/ontology/affiliatedToUniversity
+<http://countrystats.org/ontology/affiliatedToUniversity> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://countrystats.org/ontology/NobelLaureate> ;
+                                                          rdfs:range <http://countrystats.org/ontology/University> .
+
+
+###  http://countrystats.org/ontology/definedBy
+<http://countrystats.org/ontology/definedBy> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <http://countrystats.org/ontology/Rank> ;
+                                             rdfs:range <http://countrystats.org/ontology/RankParamSet> .
+
+
+###  http://countrystats.org/ontology/developmentIndicators
+<http://countrystats.org/ontology/developmentIndicators> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://dbpedia.org/ontology/Country> ;
+                                                         rdfs:range <http://countrystats.org/ontology/Statistics> .
+
+
+###  http://countrystats.org/ontology/hasPublished
+<http://countrystats.org/ontology/hasPublished> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://countrystats.org/ontology/NobelLaureate> ;
+                                                rdfs:range <http://countrystats.org/ontology/PublicationPaper> .
+
+
+###  http://countrystats.org/ontology/hasRank
+<http://countrystats.org/ontology/hasRank> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://countrystats.org/ontology/University> ;
+                                           rdfs:range <http://countrystats.org/ontology/Rank> .
+
+
+###  http://countrystats.org/ontology/hasUniversity
+<http://countrystats.org/ontology/hasUniversity> rdf:type owl:ObjectProperty ,
+                                                          owl:InverseFunctionalProperty ;
+                                                 rdfs:domain <http://dbpedia.org/ontology/Country> ;
+                                                 rdfs:range <http://countrystats.org/ontology/University> .
+
+
+###  http://countrystats.org/ontology/participatedIn
+<http://countrystats.org/ontology/participatedIn> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
+                                                  rdfs:range <http://dbpedia.org/ontology/OlympicEvent> .
+
+
+###  http://countrystats.org/ontology/represents
+<http://countrystats.org/ontology/represents> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
+                                              rdfs:range <http://dbpedia.org/ontology/Country> .
+
+
+###  http://countrystats.org/ontology/situatedIn
+<http://countrystats.org/ontology/situatedIn> rdf:type owl:ObjectProperty ,
+                                                       owl:InverseFunctionalProperty ;
+                                              rdfs:domain <http://countrystats.org/ontology/University> ;
+                                              rdfs:range <http://dbpedia.org/ontology/Country> .
+
+
+###  http://dbpedia.org/ontology/sportCountry
+<http://dbpedia.org/ontology/sportCountry> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
+                                           rdfs:range <http://dbpedia.org/ontology/Country> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://countrystats.org/ontology/citationsRating
+<http://countrystats.org/ontology/citationsRating> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                   rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/countryCode
+<http://countrystats.org/ontology/countryCode> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://dbpedia.org/ontology/Country> ;
+                                               rdfs:range xsd:string .
+
+
+###  http://countrystats.org/ontology/doi
+<http://countrystats.org/ontology/doi> rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain <http://countrystats.org/ontology/PublicationPaper> ;
+                                       rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/hasSportDiscipline
+<http://countrystats.org/ontology/hasSportDiscipline> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <http://dbpedia.org/ontology/OlympicEvent> ;
+                                                      rdfs:range rdfs:Literal .
+
+
+###  http://countrystats.org/ontology/hostedIn
+<http://countrystats.org/ontology/hostedIn> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://dbpedia.org/ontology/OlympicEvent> ;
+                                            rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/industryIncomeRating
+<http://countrystats.org/ontology/industryIncomeRating> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                        rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/interOutlookRating
+<http://countrystats.org/ontology/interOutlookRating> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                      rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/isNobelWinningPaper
+<http://countrystats.org/ontology/isNobelWinningPaper> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://countrystats.org/ontology/PublicationPaper> ;
+                                                       rdfs:range xsd:string .
+
+
+###  http://countrystats.org/ontology/journalName
+<http://countrystats.org/ontology/journalName> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://countrystats.org/ontology/PublicationPaper> ;
+                                               rdfs:range xsd:string .
+
+
+###  http://countrystats.org/ontology/laureateId
+<http://countrystats.org/ontology/laureateId> rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain <http://countrystats.org/ontology/NobelLaureate> ;
+                                              rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/medalWon
+<http://countrystats.org/ontology/medalWon> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
+                                            rdfs:range rdfs:Literal .
+
+
+###  http://countrystats.org/ontology/nobelPrizeYear
+<http://countrystats.org/ontology/nobelPrizeYear> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain <http://countrystats.org/ontology/NobelLaureate> ;
+                                                  rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/numStudents
+<http://countrystats.org/ontology/numStudents> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                               rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/paperId
+<http://countrystats.org/ontology/paperId> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain <http://countrystats.org/ontology/PublicationPaper> ;
+                                           rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/percentageFemaleStudents
+<http://countrystats.org/ontology/percentageFemaleStudents> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                            rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/percentageInterStudents
+<http://countrystats.org/ontology/percentageInterStudents> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                           rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/publicationYear
+<http://countrystats.org/ontology/publicationYear> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain <http://countrystats.org/ontology/PublicationPaper> ;
+                                                   rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/rankingYear
+<http://countrystats.org/ontology/rankingYear> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://countrystats.org/ontology/Rank> ;
+                                               rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/researchRating
+<http://countrystats.org/ontology/researchRating> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                  rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/statName
+<http://countrystats.org/ontology/statName> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://countrystats.org/ontology/Statistics> ;
+                                            rdfs:range xsd:string .
+
+
+###  http://countrystats.org/ontology/statValue
+<http://countrystats.org/ontology/statValue> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://countrystats.org/ontology/Statistics> ;
+                                             rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/statYear
+<http://countrystats.org/ontology/statYear> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://countrystats.org/ontology/Statistics> ;
+                                            rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/studentToStaffRatio
+<http://countrystats.org/ontology/studentToStaffRatio> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                       rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/teachingRating
+<http://countrystats.org/ontology/teachingRating> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain <http://countrystats.org/ontology/RankParamSet> ;
+                                                  rdfs:range xsd:float .
+
+
+###  http://countrystats.org/ontology/title
+<http://countrystats.org/ontology/title> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain <http://countrystats.org/ontology/PublicationPaper> ;
+                                         rdfs:range xsd:string .
+
+
+###  http://countrystats.org/ontology/universityName
+<http://countrystats.org/ontology/universityName> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain <http://countrystats.org/ontology/University> ;
+                                                  rdfs:range rdfs:Literal .
+
+
+###  http://countrystats.org/ontology/winningEvent
+<http://countrystats.org/ontology/winningEvent> rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
+                                                rdfs:range rdfs:Literal .
+
+
+###  http://countrystats.org/ontology/worldRank
+<http://countrystats.org/ontology/worldRank> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://countrystats.org/ontology/Rank> ;
+                                             rdfs:range xsd:integer .
+
+
+###  http://countrystats.org/ontology/yearOfEvent
+<http://countrystats.org/ontology/yearOfEvent> rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain <http://dbpedia.org/ontology/OlympicEvent> ;
+                                               rdfs:range xsd:integer .
+
+
+###  http://dbpedia.org/ontology/name
+<http://dbpedia.org/ontology/name> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <http://dbpedia.org/ontology/Country> ;
+                                   rdfs:range xsd:string .
+
+
+###  http://dbpedia.org/ontology/sex
+<http://dbpedia.org/ontology/sex> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
+                                  rdfs:range rdfs:Literal .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <http://xmlns.com/foaf/0.1/person> ;
+                                 rdfs:range xsd:Name .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://countrystats.org/ontology/NobelLaureate
+<http://countrystats.org/ontology/NobelLaureate> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://xmlns.com/foaf/0.1/person> .
+
+
+###  http://countrystats.org/ontology/PublicationPaper
+<http://countrystats.org/ontology/PublicationPaper> rdf:type owl:Class ;
+                                                    rdfs:comment "data of the country" .
+
+
+###  http://countrystats.org/ontology/Rank
+<http://countrystats.org/ontology/Rank> rdf:type owl:Class .
+
+
+###  http://countrystats.org/ontology/RankParamSet
+<http://countrystats.org/ontology/RankParamSet> rdf:type owl:Class .
+
+
+###  http://countrystats.org/ontology/Statistics
+<http://countrystats.org/ontology/Statistics> rdf:type owl:Class ;
+                                              rdfs:comment "Data of the country" .
+
+
+###  http://countrystats.org/ontology/University
+<http://countrystats.org/ontology/University> rdf:type owl:Class .
+
+
+###  http://dbpedia.org/ontology/Athlete
+<http://dbpedia.org/ontology/Athlete> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://xmlns.com/foaf/0.1/person> .
+
+
+###  http://dbpedia.org/ontology/Country
+<http://dbpedia.org/ontology/Country> rdf:type owl:Class .
+
+
+###  http://dbpedia.org/ontology/OlympicEvent
+<http://dbpedia.org/ontology/OlympicEvent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/person
+<http://xmlns.com/foaf/0.1/person> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.11) https://github.com/owlcs/owlapi/

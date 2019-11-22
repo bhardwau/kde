@@ -1,0 +1,552 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat#"
+     xml:base="http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://countrystats.org/ontology/affiliatedToUniversity -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/affiliatedToUniversity">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/NobelLaureate"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/University"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/definedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/definedBy">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/Rank"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/developmentIndicators -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/developmentIndicators">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/Statistics"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/hasPublished -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/hasPublished">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/NobelLaureate"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/hasRank -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/hasRank">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/University"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/Rank"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/hasUniversity -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/hasUniversity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/University"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/participatedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/participatedIn">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/OlympicEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/represents -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/represents">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/situatedIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/situatedIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/University"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/sportCountry -->
+
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/sportCountry">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://countrystats.org/ontology/citationsRating -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/citationsRating">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/countryCode -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/countryCode">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/doi -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/doi">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/hasSportDiscipline -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/hasSportDiscipline">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/OlympicEvent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/hostedIn -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/hostedIn">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/OlympicEvent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/industryIncomeRating -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/industryIncomeRating">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/interOutlookRating -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/interOutlookRating">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/isNobelWinningPaper -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/isNobelWinningPaper">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/journalName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/journalName">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/laureateId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/laureateId">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/NobelLaureate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/medalWon -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/medalWon">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/nobelPrizeYear -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/nobelPrizeYear">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/NobelLaureate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/numStudents -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/numStudents">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/paperId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/paperId">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/percentageFemaleStudents -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/percentageFemaleStudents">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/percentageInterStudents -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/percentageInterStudents">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/publicationYear -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/publicationYear">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/rankingYear -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/rankingYear">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/Rank"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/researchRating -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/researchRating">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/statName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/statName">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/Statistics"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/statValue -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/statValue">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/Statistics"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/statYear -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/statYear">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/Statistics"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/studentToStaffRatio -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/studentToStaffRatio">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/teachingRating -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/teachingRating">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/RankParamSet"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/title -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/title">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/PublicationPaper"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/universityName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/universityName">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/University"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/winningEvent -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/winningEvent">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/worldRank -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/worldRank">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/Rank"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://countrystats.org/ontology/yearOfEvent -->
+
+
+    <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/yearOfEvent">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/OlympicEvent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://dbpedia.org/ontology/name">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Country"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/sex -->
+
+
+    <owl:DatatypeProperty rdf:about="http://dbpedia.org/ontology/sex">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name">
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://countrystats.org/ontology/NobelLaureate -->
+
+
+    <owl:Class rdf:about="http://countrystats.org/ontology/NobelLaureate">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://countrystats.org/ontology/PublicationPaper -->
+
+
+    <owl:Class rdf:about="http://countrystats.org/ontology/PublicationPaper">
+        <rdfs:comment>data of the country</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://countrystats.org/ontology/Rank -->
+
+
+    <owl:Class rdf:about="http://countrystats.org/ontology/Rank"/>
+    
+
+
+    <!-- http://countrystats.org/ontology/RankParamSet -->
+
+
+    <owl:Class rdf:about="http://countrystats.org/ontology/RankParamSet"/>
+    
+
+
+    <!-- http://countrystats.org/ontology/Statistics -->
+
+
+    <owl:Class rdf:about="http://countrystats.org/ontology/Statistics">
+        <rdfs:comment>Data of the country</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://countrystats.org/ontology/University -->
+
+
+    <owl:Class rdf:about="http://countrystats.org/ontology/University"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Athlete -->
+
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Athlete">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Country -->
+
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Country"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/OlympicEvent -->
+
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/OlympicEvent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/person -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/person"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.11) https://github.com/owlcs/owlapi/ -->
+
+
