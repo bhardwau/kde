@@ -3,7 +3,7 @@
   "header" : {
     "languages" : [ "undefined" ],
     "baseIris" : [ "http://www.w3.org/2000/01/rdf-schema", "http://countrystats.org/ontology", "http://www.w3.org/2001/XMLSchema", "http://dbpedia.org/ontology", "http://xmlns.com/foaf/0.1" ],
-    "iri" : "http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat"
+    "iri" : "http://www.trinity.org/ontologies/countryStat"
   },
   "namespace" : [ ],
   "class" : [ {
@@ -47,12 +47,12 @@
     "type" : "rdfs:Datatype"
   }, {
     "id" : "53",
-    "type" : "rdfs:Datatype"
+    "type" : "rdfs:Literal"
   }, {
     "id" : "37",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "55",
+    "id" : "56",
     "type" : "owl:Class"
   }, {
     "id" : "58",
@@ -61,37 +61,37 @@
     "id" : "2",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "60",
+    "id" : "59",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "25",
+    "id" : "27",
     "type" : "rdfs:Literal"
-  }, {
-    "id" : "36",
-    "type" : "owl:Class"
   }, {
     "id" : "41",
     "type" : "owl:Class"
   }, {
-    "id" : "62",
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "6",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "11",
+    "id" : "13",
     "type" : "owl:Class"
   }, {
-    "id" : "27",
+    "id" : "25",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "14",
+    "id" : "11",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "57",
+    "id" : "55",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "67",
+    "id" : "66",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "42",
@@ -106,7 +106,7 @@
     "id" : "33",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "12",
+    "id" : "14",
     "type" : "owl:Class"
   }, {
     "id" : "71",
@@ -115,7 +115,7 @@
     "id" : "8",
     "type" : "owl:Class"
   }, {
-    "id" : "69",
+    "id" : "68",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "77",
@@ -130,7 +130,7 @@
     "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "64",
+    "id" : "63",
     "type" : "rdfs:Datatype"
   } ],
   "classAttribute" : [ {
@@ -228,11 +228,12 @@
       "IRI-based" : "integer"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
     "id" : "53",
     "label" : {
-      "IRI-based" : "string"
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#float",
@@ -245,12 +246,21 @@
     "iri" : "http://xmlns.com/foaf/0.1/person",
     "baseIri" : "http://xmlns.com/foaf/0.1",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "person"
+      "IRI-based" : "person",
+      "undefined" : "Person"
     },
     "subClasses" : [ "8", "5" ],
     "attributes" : [ "external" ],
-    "id" : "55"
+    "id" : "56"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -268,40 +278,58 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#float",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "60",
+    "id" : "59",
     "label" : {
       "IRI-based" : "float"
     }
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "25",
+    "id" : "27",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
     }
   }, {
-    "iri" : "http://countrystats.org/ontology/RankParamSet",
-    "baseIri" : "http://countrystats.org/ontology",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "RankParamSet"
-    },
-    "attributes" : [ "external" ],
-    "id" : "36"
-  }, {
     "iri" : "http://dbpedia.org/ontology/Country",
     "baseIri" : "http://dbpedia.org/ontology",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "The country where the thing is located.",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "Country"
+      "IRI-based" : "Country",
+      "undefined" : "Country"
     },
     "attributes" : [ "external" ],
     "id" : "41"
   }, {
+    "iri" : "http://countrystats.org/ontology/RankParamSet",
+    "baseIri" : "http://countrystats.org/ontology",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "Parameters that an Instituition is judged on for calculating it's ranking .",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "RankParamSet",
+      "undefined" : "Ranking Parameters"
+    },
+    "attributes" : [ "external" ],
+    "id" : "36"
+  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "62",
+    "id" : "61",
     "label" : {
       "IRI-based" : "integer"
     }
@@ -316,22 +344,31 @@
     "iri" : "http://countrystats.org/ontology/University",
     "baseIri" : "http://countrystats.org/ontology",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "Education Instution with different schools of various domains",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "University"
+      "IRI-based" : "University",
+      "undefined" : "University"
     },
     "attributes" : [ "external" ],
-    "id" : "11"
+    "id" : "13"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "27",
+    "id" : "25",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "14",
+    "id" : "11",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -339,14 +376,14 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "57",
+    "id" : "55",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#float",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "67",
+    "id" : "66",
     "label" : {
       "IRI-based" : "float"
     }
@@ -354,11 +391,17 @@
     "iri" : "http://countrystats.org/ontology/Statistics",
     "baseIri" : "http://countrystats.org/ontology",
     "instances" : 0,
-    "label" : {
-      "IRI-based" : "Statistics"
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "Growth Statistics of a Country",
+        "type" : "label"
+      } ]
     },
-    "comment" : {
-      "undefined" : "Data of the country"
+    "label" : {
+      "IRI-based" : "Statistics",
+      "undefined" : "Statistics"
     },
     "attributes" : [ "external" ],
     "id" : "42"
@@ -387,11 +430,20 @@
     "iri" : "http://countrystats.org/ontology/Rank",
     "baseIri" : "http://countrystats.org/ontology",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "Position of an Instituition calculated after judging various parameters",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "Rank"
+      "IRI-based" : "Rank",
+      "undefined" : "Rank"
     },
     "attributes" : [ "external" ],
-    "id" : "12"
+    "id" : "14"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
@@ -408,11 +460,11 @@
     },
     "attributes" : [ "external" ],
     "id" : "8",
-    "superClasses" : [ "55" ]
+    "superClasses" : [ "56" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#float",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "69",
+    "id" : "68",
     "label" : {
       "IRI-based" : "float"
     }
@@ -427,11 +479,17 @@
     "iri" : "http://countrystats.org/ontology/PublicationPaper",
     "baseIri" : "http://countrystats.org/ontology",
     "instances" : 0,
-    "label" : {
-      "IRI-based" : "PublicationPaper"
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "Research paper authored by researcher's of varios fields",
+        "type" : "label"
+      } ]
     },
-    "comment" : {
-      "undefined" : "data of the country"
+    "label" : {
+      "IRI-based" : "PublicationPaper",
+      "undefined" : "Research Paper"
     },
     "attributes" : [ "external" ],
     "id" : "1"
@@ -444,20 +502,29 @@
     },
     "attributes" : [ "external" ],
     "id" : "5",
-    "superClasses" : [ "55" ]
+    "superClasses" : [ "56" ]
   }, {
     "iri" : "http://dbpedia.org/ontology/OlympicEvent",
     "baseIri" : "http://dbpedia.org/ontology",
     "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "World's foremost sports competition with more than 200 nations participating.",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "OlympicEvent"
+      "IRI-based" : "OlympicEvent",
+      "undefined" : "Olympics"
     },
     "attributes" : [ "external" ],
     "id" : "9"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#Name",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "64",
+    "id" : "63",
     "label" : {
       "IRI-based" : "Name"
     }
@@ -473,10 +540,10 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "10",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "13",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "12",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "15",
     "type" : "owl:datatypeProperty"
@@ -533,28 +600,28 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "54",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "56",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "59",
+    "id" : "57",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "61",
+    "id" : "60",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "63",
+    "id" : "62",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "64",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "65",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "66",
+    "id" : "67",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "68",
-    "type" : "owl:datatypeProperty"
+    "id" : "69",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "70",
     "type" : "owl:datatypeProperty"
@@ -626,25 +693,25 @@
     "attributes" : [ "external", "object" ],
     "id" : "7"
   }, {
-    "iri" : "http://countrystats.org/ontology/hasRank",
-    "baseIri" : "http://countrystats.org/ontology",
-    "range" : "12",
-    "label" : {
-      "IRI-based" : "hasRank"
-    },
-    "domain" : "11",
-    "attributes" : [ "external", "object" ],
-    "id" : "10"
-  }, {
     "iri" : "http://countrystats.org/ontology/hasSportDiscipline",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "14",
+    "range" : "11",
     "label" : {
       "IRI-based" : "hasSportDiscipline"
     },
     "domain" : "9",
     "attributes" : [ "external", "datatype" ],
-    "id" : "13"
+    "id" : "10"
+  }, {
+    "iri" : "http://countrystats.org/ontology/hasRank",
+    "baseIri" : "http://countrystats.org/ontology",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "hasRank"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "object" ],
+    "id" : "12"
   }, {
     "iri" : "http://countrystats.org/ontology/rankingYear",
     "baseIri" : "http://countrystats.org/ontology",
@@ -652,7 +719,7 @@
     "label" : {
       "IRI-based" : "rankingYear"
     },
-    "domain" : "12",
+    "domain" : "14",
     "attributes" : [ "external", "datatype" ],
     "id" : "15"
   }, {
@@ -666,23 +733,23 @@
     "attributes" : [ "external", "object" ],
     "id" : "17"
   }, {
-    "iri" : "http://countrystats.org/ontology/medalWon",
-    "baseIri" : "http://countrystats.org/ontology",
-    "range" : "25",
-    "label" : {
-      "IRI-based" : "medalWon"
-    },
-    "domain" : "8",
-    "attributes" : [ "external", "datatype" ],
-    "id" : "24"
-  }, {
     "iri" : "http://countrystats.org/ontology/doi",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "27",
+    "range" : "25",
     "label" : {
       "IRI-based" : "doi"
     },
     "domain" : "1",
+    "attributes" : [ "external", "datatype" ],
+    "id" : "24"
+  }, {
+    "iri" : "http://countrystats.org/ontology/medalWon",
+    "baseIri" : "http://countrystats.org/ontology",
+    "range" : "27",
+    "label" : {
+      "IRI-based" : "medalWon"
+    },
+    "domain" : "8",
     "attributes" : [ "external", "datatype" ],
     "id" : "26"
   }, {
@@ -752,7 +819,7 @@
     "label" : {
       "IRI-based" : "worldRank"
     },
-    "domain" : "12",
+    "domain" : "14",
     "attributes" : [ "external", "datatype" ],
     "id" : "44"
   }, {
@@ -792,7 +859,7 @@
     "label" : {
       "IRI-based" : "universityName"
     },
-    "domain" : "11",
+    "domain" : "13",
     "attributes" : [ "external", "datatype" ],
     "id" : "49"
   }, {
@@ -802,7 +869,7 @@
     "label" : {
       "IRI-based" : "situatedIn"
     },
-    "domain" : "11",
+    "domain" : "13",
     "attributes" : [ "external", "object", "inverse functional" ],
     "id" : "50"
   }, {
@@ -826,35 +893,25 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "52"
   }, {
-    "iri" : "http://countrystats.org/ontology/affiliatedToUniversity",
-    "baseIri" : "http://countrystats.org/ontology",
-    "range" : "11",
-    "label" : {
-      "IRI-based" : "affiliatedToUniversity"
-    },
-    "domain" : "5",
-    "attributes" : [ "external", "object" ],
-    "id" : "54"
-  }, {
     "iri" : "http://countrystats.org/ontology/hostedIn",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "57",
+    "range" : "55",
     "label" : {
       "IRI-based" : "hostedIn"
     },
     "domain" : "9",
     "attributes" : [ "external", "datatype" ],
-    "id" : "56"
+    "id" : "54"
   }, {
-    "iri" : "http://countrystats.org/ontology/represents",
+    "iri" : "http://countrystats.org/ontology/affiliatedToUniversity",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "41",
+    "range" : "13",
     "label" : {
-      "IRI-based" : "represents"
+      "IRI-based" : "affiliatedToUniversity"
     },
-    "domain" : "8",
+    "domain" : "5",
     "attributes" : [ "external", "object" ],
-    "id" : "59"
+    "id" : "57"
   }, {
     "iri" : "http://countrystats.org/ontology/paperId",
     "baseIri" : "http://countrystats.org/ontology",
@@ -864,47 +921,57 @@
     },
     "domain" : "1",
     "attributes" : [ "external", "datatype" ],
-    "id" : "61"
+    "id" : "60"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/name",
     "baseIri" : "http://xmlns.com/foaf/0.1",
-    "range" : "64",
+    "range" : "63",
     "label" : {
       "IRI-based" : "name"
     },
-    "domain" : "55",
+    "domain" : "56",
     "attributes" : [ "external", "datatype" ],
-    "id" : "63"
+    "id" : "62"
   }, {
     "iri" : "http://countrystats.org/ontology/numStudents",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "62",
+    "range" : "61",
     "label" : {
       "IRI-based" : "numStudents"
     },
     "domain" : "36",
     "attributes" : [ "external", "datatype" ],
-    "id" : "65"
+    "id" : "64"
   }, {
     "iri" : "http://countrystats.org/ontology/industryIncomeRating",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "67",
+    "range" : "66",
     "label" : {
       "IRI-based" : "industryIncomeRating"
     },
     "domain" : "36",
     "attributes" : [ "external", "datatype" ],
-    "id" : "66"
+    "id" : "65"
   }, {
     "iri" : "http://countrystats.org/ontology/citationsRating",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "69",
+    "range" : "68",
     "label" : {
       "IRI-based" : "citationsRating"
     },
     "domain" : "36",
     "attributes" : [ "external", "datatype" ],
-    "id" : "68"
+    "id" : "67"
+  }, {
+    "iri" : "http://countrystats.org/ontology/hasNobelLaureate",
+    "baseIri" : "http://countrystats.org/ontology",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "hasNobelLaureate"
+    },
+    "domain" : "13",
+    "attributes" : [ "external", "object" ],
+    "id" : "69"
   }, {
     "iri" : "http://countrystats.org/ontology/laureateId",
     "baseIri" : "http://countrystats.org/ontology",
@@ -932,7 +999,7 @@
     "label" : {
       "IRI-based" : "definedBy"
     },
-    "domain" : "12",
+    "domain" : "14",
     "attributes" : [ "external", "object" ],
     "id" : "74"
   }, {
@@ -978,7 +1045,7 @@
   }, {
     "iri" : "http://countrystats.org/ontology/hasUniversity",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "11",
+    "range" : "13",
     "label" : {
       "IRI-based" : "hasUniversity"
     },
@@ -996,7 +1063,7 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "81"
   }, {
-    "range" : "55",
+    "range" : "56",
     "domain" : "8",
     "attributes" : [ "object", "anonymous" ],
     "id" : "82"
@@ -1013,7 +1080,7 @@
   }, {
     "iri" : "http://countrystats.org/ontology/percentageInterStudents",
     "baseIri" : "http://countrystats.org/ontology",
-    "range" : "60",
+    "range" : "59",
     "label" : {
       "IRI-based" : "percentageInterStudents"
     },
@@ -1021,7 +1088,7 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "84"
   }, {
-    "range" : "55",
+    "range" : "56",
     "domain" : "5",
     "attributes" : [ "object", "anonymous" ],
     "id" : "85"

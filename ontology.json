@@ -7,24 +7,50 @@
 }, {
   "@id" : "http://countrystats.org/ontology/PublicationPaper",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "data of the country"
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "Research paper authored by researcher's of varios fields"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Research Paper"
   } ]
 }, {
   "@id" : "http://countrystats.org/ontology/Rank",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "Position of an Instituition calculated after judging various parameters"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Rank"
+  } ]
 }, {
   "@id" : "http://countrystats.org/ontology/RankParamSet",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "Parameters that an Instituition is judged on for calculating it's ranking ."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Ranking Parameters"
+  } ]
 }, {
   "@id" : "http://countrystats.org/ontology/Statistics",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Data of the country"
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "Growth Statistics of a Country"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "@value" : "Statistics"
   } ]
 }, {
   "@id" : "http://countrystats.org/ontology/University",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "Education Instution with different schools of various domains"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@type" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "@value" : "University"
+  } ]
 }, {
   "@id" : "http://countrystats.org/ontology/affiliatedToUniversity",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
@@ -78,6 +104,15 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ]
+}, {
+  "@id" : "http://countrystats.org/ontology/hasNobelLaureate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://countrystats.org/ontology/University"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://countrystats.org/ontology/NobelLaureate"
   } ]
 }, {
   "@id" : "http://countrystats.org/ontology/hasPublished",
@@ -251,15 +286,6 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#integer"
   } ]
 }, {
-  "@id" : "http://countrystats.org/ontology/represents",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://dbpedia.org/ontology/Athlete"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://dbpedia.org/ontology/Country"
-  } ]
-}, {
   "@id" : "http://countrystats.org/ontology/researchRating",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
@@ -284,7 +310,7 @@
     "@id" : "http://countrystats.org/ontology/Statistics"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Literal"
   } ]
 }, {
   "@id" : "http://countrystats.org/ontology/statValue",
@@ -375,10 +401,22 @@
   } ]
 }, {
   "@id" : "http://dbpedia.org/ontology/Country",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "The country where the thing is located."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Country"
+  } ]
 }, {
   "@id" : "http://dbpedia.org/ontology/OlympicEvent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "World's foremost sports competition with more than 200 nations participating."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Olympics"
+  } ]
 }, {
   "@id" : "http://dbpedia.org/ontology/name",
   "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
@@ -407,7 +445,7 @@
     "@id" : "http://dbpedia.org/ontology/Country"
   } ]
 }, {
-  "@id" : "http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat",
+  "@id" : "http://www.trinity.org/ontologies/countryStat",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ]
 }, {
   "@id" : "http://xmlns.com/foaf/0.1/name",
@@ -420,5 +458,11 @@
   } ]
 }, {
   "@id" : "http://xmlns.com/foaf/0.1/person",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@value" : "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Person"
+  } ]
 } ]

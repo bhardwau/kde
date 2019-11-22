@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat#"
-     xml:base="http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat"
+<rdf:RDF xmlns="http://www.trinity.org/ontologies/countryStat#"
+     xml:base="http://www.trinity.org/ontologies/countryStat"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat"/>
+    <owl:Ontology rdf:about="http://www.trinity.org/ontologies/countryStat"/>
     
 
 
@@ -52,6 +52,16 @@
     
 
 
+    <!-- http://countrystats.org/ontology/hasNobelLaureate -->
+
+
+    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/hasNobelLaureate">
+        <rdfs:domain rdf:resource="http://countrystats.org/ontology/University"/>
+        <rdfs:range rdf:resource="http://countrystats.org/ontology/NobelLaureate"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://countrystats.org/ontology/hasPublished -->
 
 
@@ -89,16 +99,6 @@
     <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/participatedIn">
         <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
         <rdfs:range rdf:resource="http://dbpedia.org/ontology/OlympicEvent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://countrystats.org/ontology/represents -->
-
-
-    <owl:ObjectProperty rdf:about="http://countrystats.org/ontology/represents">
-        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Athlete"/>
-        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:ObjectProperty>
     
 
@@ -331,7 +331,7 @@
 
     <owl:DatatypeProperty rdf:about="http://countrystats.org/ontology/statName">
         <rdfs:domain rdf:resource="http://countrystats.org/ontology/Statistics"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     </owl:DatatypeProperty>
     
 
@@ -481,7 +481,8 @@
 
 
     <owl:Class rdf:about="http://countrystats.org/ontology/PublicationPaper">
-        <rdfs:comment>data of the country</rdfs:comment>
+        <rdfs:isDefinedBy>Research paper authored by researcher&apos;s of varios fields</rdfs:isDefinedBy>
+        <rdfs:label>Research Paper</rdfs:label>
     </owl:Class>
     
 
@@ -489,14 +490,20 @@
     <!-- http://countrystats.org/ontology/Rank -->
 
 
-    <owl:Class rdf:about="http://countrystats.org/ontology/Rank"/>
+    <owl:Class rdf:about="http://countrystats.org/ontology/Rank">
+        <rdfs:isDefinedBy>Position of an Instituition calculated after judging various parameters</rdfs:isDefinedBy>
+        <rdfs:label>Rank</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://countrystats.org/ontology/RankParamSet -->
 
 
-    <owl:Class rdf:about="http://countrystats.org/ontology/RankParamSet"/>
+    <owl:Class rdf:about="http://countrystats.org/ontology/RankParamSet">
+        <rdfs:isDefinedBy>Parameters that an Instituition is judged on for calculating it&apos;s ranking .</rdfs:isDefinedBy>
+        <rdfs:label>Ranking Parameters</rdfs:label>
+    </owl:Class>
     
 
 
@@ -504,7 +511,8 @@
 
 
     <owl:Class rdf:about="http://countrystats.org/ontology/Statistics">
-        <rdfs:comment>Data of the country</rdfs:comment>
+        <rdfs:isDefinedBy>Growth Statistics of a Country</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">Statistics</rdfs:label>
     </owl:Class>
     
 
@@ -512,7 +520,10 @@
     <!-- http://countrystats.org/ontology/University -->
 
 
-    <owl:Class rdf:about="http://countrystats.org/ontology/University"/>
+    <owl:Class rdf:about="http://countrystats.org/ontology/University">
+        <rdfs:isDefinedBy>Education Instution with different schools of various domains</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2000/01/rdf-schema#Literal">University</rdfs:label>
+    </owl:Class>
     
 
 
@@ -528,21 +539,30 @@
     <!-- http://dbpedia.org/ontology/Country -->
 
 
-    <owl:Class rdf:about="http://dbpedia.org/ontology/Country"/>
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Country">
+        <rdfs:isDefinedBy>The country where the thing is located.</rdfs:isDefinedBy>
+        <rdfs:label>Country</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://dbpedia.org/ontology/OlympicEvent -->
 
 
-    <owl:Class rdf:about="http://dbpedia.org/ontology/OlympicEvent"/>
+    <owl:Class rdf:about="http://dbpedia.org/ontology/OlympicEvent">
+        <rdfs:isDefinedBy>World&apos;s foremost sports competition with more than 200 nations participating.</rdfs:isDefinedBy>
+        <rdfs:label>Olympics</rdfs:label>
+    </owl:Class>
     
 
 
     <!-- http://xmlns.com/foaf/0.1/person -->
 
 
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/person"/>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/person">
+        <rdfs:isDefinedBy>The Person class represents people. Something is a Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered &apos;agents&apos; in FOAF</rdfs:isDefinedBy>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
 </rdf:RDF>
 
 

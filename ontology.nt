@@ -1,4 +1,4 @@
-<http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.trinity.org/ontologies/countryStat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
 # 
 # 
 # #################################################################
@@ -23,6 +23,11 @@
 <http://countrystats.org/ontology/developmentIndicators> <http://www.w3.org/2000/01/rdf-schema#domain> <http://dbpedia.org/ontology/Country> .
 <http://countrystats.org/ontology/developmentIndicators> <http://www.w3.org/2000/01/rdf-schema#range> <http://countrystats.org/ontology/Statistics> .
 # 
+# http://countrystats.org/ontology/hasNobelLaureate
+<http://countrystats.org/ontology/hasNobelLaureate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://countrystats.org/ontology/hasNobelLaureate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://countrystats.org/ontology/University> .
+<http://countrystats.org/ontology/hasNobelLaureate> <http://www.w3.org/2000/01/rdf-schema#range> <http://countrystats.org/ontology/NobelLaureate> .
+# 
 # http://countrystats.org/ontology/hasPublished
 <http://countrystats.org/ontology/hasPublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://countrystats.org/ontology/hasPublished> <http://www.w3.org/2000/01/rdf-schema#domain> <http://countrystats.org/ontology/NobelLaureate> .
@@ -43,11 +48,6 @@
 <http://countrystats.org/ontology/participatedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://countrystats.org/ontology/participatedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://dbpedia.org/ontology/Athlete> .
 <http://countrystats.org/ontology/participatedIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://dbpedia.org/ontology/OlympicEvent> .
-# 
-# http://countrystats.org/ontology/represents
-<http://countrystats.org/ontology/represents> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<http://countrystats.org/ontology/represents> <http://www.w3.org/2000/01/rdf-schema#domain> <http://dbpedia.org/ontology/Athlete> .
-<http://countrystats.org/ontology/represents> <http://www.w3.org/2000/01/rdf-schema#range> <http://dbpedia.org/ontology/Country> .
 # 
 # http://countrystats.org/ontology/situatedIn
 <http://countrystats.org/ontology/situatedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
@@ -167,7 +167,7 @@
 # http://countrystats.org/ontology/statName
 <http://countrystats.org/ontology/statName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://countrystats.org/ontology/statName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://countrystats.org/ontology/Statistics> .
-<http://countrystats.org/ontology/statName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://countrystats.org/ontology/statName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
 # 
 # http://countrystats.org/ontology/statValue
 <http://countrystats.org/ontology/statValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -244,20 +244,28 @@
 # 
 # http://countrystats.org/ontology/PublicationPaper
 <http://countrystats.org/ontology/PublicationPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://countrystats.org/ontology/PublicationPaper> <http://www.w3.org/2000/01/rdf-schema#comment> "data of the country" .
+<http://countrystats.org/ontology/PublicationPaper> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Research paper authored by researcher's of varios fields" .
+<http://countrystats.org/ontology/PublicationPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Research Paper" .
 # 
 # http://countrystats.org/ontology/Rank
 <http://countrystats.org/ontology/Rank> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://countrystats.org/ontology/Rank> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Position of an Instituition calculated after judging various parameters" .
+<http://countrystats.org/ontology/Rank> <http://www.w3.org/2000/01/rdf-schema#label> "Rank" .
 # 
 # http://countrystats.org/ontology/RankParamSet
 <http://countrystats.org/ontology/RankParamSet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://countrystats.org/ontology/RankParamSet> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Parameters that an Instituition is judged on for calculating it's ranking ." .
+<http://countrystats.org/ontology/RankParamSet> <http://www.w3.org/2000/01/rdf-schema#label> "Ranking Parameters" .
 # 
 # http://countrystats.org/ontology/Statistics
 <http://countrystats.org/ontology/Statistics> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://countrystats.org/ontology/Statistics> <http://www.w3.org/2000/01/rdf-schema#comment> "Data of the country" .
+<http://countrystats.org/ontology/Statistics> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Growth Statistics of a Country" .
+<http://countrystats.org/ontology/Statistics> <http://www.w3.org/2000/01/rdf-schema#label> "Statistics"^^<http://www.w3.org/2000/01/rdf-schema#Literal> .
 # 
 # http://countrystats.org/ontology/University
 <http://countrystats.org/ontology/University> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://countrystats.org/ontology/University> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Education Instution with different schools of various domains" .
+<http://countrystats.org/ontology/University> <http://www.w3.org/2000/01/rdf-schema#label> "University"^^<http://www.w3.org/2000/01/rdf-schema#Literal> .
 # 
 # http://dbpedia.org/ontology/Athlete
 <http://dbpedia.org/ontology/Athlete> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -265,11 +273,17 @@
 # 
 # http://dbpedia.org/ontology/Country
 <http://dbpedia.org/ontology/Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://dbpedia.org/ontology/Country> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "The country where the thing is located." .
+<http://dbpedia.org/ontology/Country> <http://www.w3.org/2000/01/rdf-schema#label> "Country" .
 # 
 # http://dbpedia.org/ontology/OlympicEvent
 <http://dbpedia.org/ontology/OlympicEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://dbpedia.org/ontology/OlympicEvent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "World's foremost sports competition with more than 200 nations participating." .
+<http://dbpedia.org/ontology/OlympicEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Olympics" .
 # 
 # http://xmlns.com/foaf/0.1/person
 <http://xmlns.com/foaf/0.1/person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/person> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF" .
+<http://xmlns.com/foaf/0.1/person> <http://www.w3.org/2000/01/rdf-schema#label> "Person" .
 # 
 # Generated by the OWL API (version 5.1.11) https://github.com/owlcs/owlapi/

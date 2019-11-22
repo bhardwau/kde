@@ -1,12 +1,12 @@
-@prefix : <http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat#> .
+@prefix : <http://www.trinity.org/ontologies/countryStat#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat> .
+@base <http://www.trinity.org/ontologies/countryStat> .
 
-<http://www.semanticweb.org/bhardwau/ontologies/2019/countryStat> rdf:type owl:Ontology .
+<http://www.trinity.org/ontologies/countryStat> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
@@ -28,6 +28,12 @@
 <http://countrystats.org/ontology/developmentIndicators> rdf:type owl:ObjectProperty ;
                                                          rdfs:domain <http://dbpedia.org/ontology/Country> ;
                                                          rdfs:range <http://countrystats.org/ontology/Statistics> .
+
+
+###  http://countrystats.org/ontology/hasNobelLaureate
+<http://countrystats.org/ontology/hasNobelLaureate> rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain <http://countrystats.org/ontology/University> ;
+                                                    rdfs:range <http://countrystats.org/ontology/NobelLaureate> .
 
 
 ###  http://countrystats.org/ontology/hasPublished
@@ -53,12 +59,6 @@
 <http://countrystats.org/ontology/participatedIn> rdf:type owl:ObjectProperty ;
                                                   rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
                                                   rdfs:range <http://dbpedia.org/ontology/OlympicEvent> .
-
-
-###  http://countrystats.org/ontology/represents
-<http://countrystats.org/ontology/represents> rdf:type owl:ObjectProperty ;
-                                              rdfs:domain <http://dbpedia.org/ontology/Athlete> ;
-                                              rdfs:range <http://dbpedia.org/ontology/Country> .
 
 
 ###  http://countrystats.org/ontology/situatedIn
@@ -195,7 +195,7 @@
 ###  http://countrystats.org/ontology/statName
 <http://countrystats.org/ontology/statName> rdf:type owl:DatatypeProperty ;
                                             rdfs:domain <http://countrystats.org/ontology/Statistics> ;
-                                            rdfs:range xsd:string .
+                                            rdfs:range rdfs:Literal .
 
 
 ###  http://countrystats.org/ontology/statValue
@@ -281,24 +281,32 @@
 
 ###  http://countrystats.org/ontology/PublicationPaper
 <http://countrystats.org/ontology/PublicationPaper> rdf:type owl:Class ;
-                                                    rdfs:comment "data of the country" .
+                                                    rdfs:isDefinedBy "Research paper authored by researcher's of varios fields" ;
+                                                    rdfs:label "Research Paper" .
 
 
 ###  http://countrystats.org/ontology/Rank
-<http://countrystats.org/ontology/Rank> rdf:type owl:Class .
+<http://countrystats.org/ontology/Rank> rdf:type owl:Class ;
+                                        rdfs:isDefinedBy "Position of an Instituition calculated after judging various parameters" ;
+                                        rdfs:label "Rank" .
 
 
 ###  http://countrystats.org/ontology/RankParamSet
-<http://countrystats.org/ontology/RankParamSet> rdf:type owl:Class .
+<http://countrystats.org/ontology/RankParamSet> rdf:type owl:Class ;
+                                                rdfs:isDefinedBy "Parameters that an Instituition is judged on for calculating it's ranking ." ;
+                                                rdfs:label "Ranking Parameters" .
 
 
 ###  http://countrystats.org/ontology/Statistics
 <http://countrystats.org/ontology/Statistics> rdf:type owl:Class ;
-                                              rdfs:comment "Data of the country" .
+                                              rdfs:isDefinedBy "Growth Statistics of a Country" ;
+                                              rdfs:label "Statistics"^^rdfs:Literal .
 
 
 ###  http://countrystats.org/ontology/University
-<http://countrystats.org/ontology/University> rdf:type owl:Class .
+<http://countrystats.org/ontology/University> rdf:type owl:Class ;
+                                              rdfs:isDefinedBy "Education Instution with different schools of various domains" ;
+                                              rdfs:label "University"^^rdfs:Literal .
 
 
 ###  http://dbpedia.org/ontology/Athlete
@@ -307,15 +315,21 @@
 
 
 ###  http://dbpedia.org/ontology/Country
-<http://dbpedia.org/ontology/Country> rdf:type owl:Class .
+<http://dbpedia.org/ontology/Country> rdf:type owl:Class ;
+                                      rdfs:isDefinedBy "The country where the thing is located." ;
+                                      rdfs:label "Country" .
 
 
 ###  http://dbpedia.org/ontology/OlympicEvent
-<http://dbpedia.org/ontology/OlympicEvent> rdf:type owl:Class .
+<http://dbpedia.org/ontology/OlympicEvent> rdf:type owl:Class ;
+                                           rdfs:isDefinedBy "World's foremost sports competition with more than 200 nations participating." ;
+                                           rdfs:label "Olympics" .
 
 
 ###  http://xmlns.com/foaf/0.1/person
-<http://xmlns.com/foaf/0.1/person> rdf:type owl:Class .
+<http://xmlns.com/foaf/0.1/person> rdf:type owl:Class ;
+                                   rdfs:isDefinedBy "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF" ;
+                                   rdfs:label "Person" .
 
 
 ###  Generated by the OWL API (version 5.1.11) https://github.com/owlcs/owlapi/
