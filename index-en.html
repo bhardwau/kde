@@ -8,9 +8,9 @@
 <!-- SCHEMA.ORG METADATA -->
 <script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"http://www.trinity.org/ontologies/countryStat","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.trinity.org/ontologies/countryStat","name":"Country Statistics", "headline":"Document describing the ontology http://www.trinity.org/ontologies/countryStat", "datePublished":"Fri Nov 22 00:15:15 GMT 2019"}</script>
 
-<script src="resources/jquery.js"></script> 
-<script src="resources/marked.min.js"></script> 
-    <script> 
+<script src="resources/jquery.js"></script>
+<script src="resources/marked.min.js"></script>
+    <script>
 function loadHash() {
   jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
 	var hash = location.hash;
@@ -40,20 +40,22 @@ function loadTOC(){
 		}
 	  });
 	  t+='</ul>';
-	  $("#toc").html(t); 
+	  $("#toc").html(t);
 }
  $.fn.ignore = function(sel){
         return this.clone().find(sel||">*").remove().end();
  };    $(function(){
-      $("#abstract").load("sections/abstract-en.html"); 
-      $("#introduction").load("sections/introduction-en.html"); 
-      $("#overview").load("sections/overview-en.html"); 
-      $("#description").load("sections/description-en.html"); 
-      $("#references").load("sections/references-en.html"); 
-      $("#crossref").load("sections/crossref-en.html", null, loadHash); 
+      $("#abstract").load("sections/abstract-en.html");
+      $("#introduction").load("sections/introduction-en.html");
+      $("#overview").load("sections/overview-en.html");
+      $("#description").load("sections/description-en.html");
+      $("#sparql-queries").load("sections/sparql-queries-en.html");
+      $("#r2rml").load("sections/r2rml-en.html");
+      $("#references").load("sections/references-en.html");
+      $("#crossref").load("sections/crossref-en.html", null, loadHash);
     });
-    </script> 
-  </head> 
+    </script>
+  </head>
 
 <body>
 <div class="container">
@@ -78,6 +80,8 @@ function loadTOC(){
      <div id="overview"></div>
      <div id="description"></div>
      <div id="crossref"></div>
+     <div id="r2rml"></div>
+     <div id="sparql-queries"></div>
      <div id="references"></div>
 <div id="acknowledgements">
 <h2 id="ack" class="list">Acknowledgements <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>

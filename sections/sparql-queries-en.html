@@ -1,0 +1,191 @@
+<h2 id="sparql" class="list">SPARQL Queries<span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">
+#### 1. Get names of Nobel laureates for given country
+
+```
+SELECT (UCASE(?laureateUniversityName)) (UCASE(?laureateName) AS ?LAUREATE_NAME)
+WHERE {
+  	?country dbo:name 'United States of America'.
+    ?university exont:situatedIn ?country.
+    ?university exont:universityName ?universityname.
+    ?laureate exont:affiliatedToUniversity ?univ.
+    ?univ exont:universityName ?laureateUniversityName.
+    FILTER ( regex (str(?universityname), str(?laureateUniversityName), "i") ).
+    ?laureate foaf:name ?laureateName
+}
+```
+
+#### 2. University ranking to which a Nobel laureate is affiliated to in 2016
+
+```
+SELECT (UCASE(?laureateUniversityName) AS ?UNIVERSITY_NAME) (?universityRank AS ?WORLD_RANKING)
+WHERE
+{
+  ?laureate  foaf:name 'lamb, we'.
+  ?laureate exont:affiliatedToUniversity ?laureateUniversity.
+  ?laureateUniversity exont:universityName ?laureateUniversityName.
+  ?university exont:situatedIn ?country.
+  ?university exont:universityName ?universityname.
+  FILTER ( regex (str(?universityname), str(?laureateUniversityName), "i") ).
+  ?university exont:hasRank ?universityRankObj.
+  ?universityRankObj exont:worldRank ?universityRank
+}
+```
+
+#### 3. Titles of nobel prize winning papers for a country
+
+```
+SELECT (UCASE(?laureateUnivName) AS ?UNIVERSITY_NAME) (UCASE(?researchPaperTitle) AS ?PAPER_TITLE)
+WHERE {
+  ?country dbo:name 'United States of America'.
+  ?university exont:situatedIn ?country.
+  ?university exont:universityName ?universityname.
+  ?laureate exont:affiliatedToUniversity ?univ.
+  ?univ exont:universityName ?laureateUnivName.
+  FILTER ( regex (str(?universityname), str(?laureateUnivName), "i") ).
+  ?laureate exont:hasPublished ?researchPaper.
+  ?researchPaper dbo:title ?researchPaperTitle
+}
+```
+
+#### 4. Ratio of students in university vs population of the country in 2016
+
+```
+SELECT (?universityname AS ?UNIVERSITY_NAME) (?numberOfStudents AS ?TOTAL_NO_OF_STUDENTS) (?populationCount AS ?TOTAL_POPULATION)
+WHERE {
+	?country dbo:name 'United States of America'.
+  ?university exont:situatedIn ?country.
+  ?university exont:universityName ?universityname.
+  ?university exont:hasRank ?universityRankObj.
+  ?universityRankObj exont:worldRank ?universityWorldRank.
+  ?universityRankObj exont:definedBy ?universityRankingParams.
+  ?universityRankingParams exont:numberOfStudents ?numberOfStudents.
+	{
+    SELECT ?populationCount
+    WHERE {
+      ?country dbo:name 'United States'.
+      ?country exont:developmentIndicator ?devParam.
+      ?devParam exont:statName 'Population, total'.
+      ?devParam exont:statYear 2016.
+      ?devParam exont:statValue ?populationCount.
+    }
+  }
+} ORDER BY DESC (?numberOfStudents)
+```
+
+#### 5. Research rating of a university which has a Nobel laureates affiliated to it, in year 2016
+
+```
+SELECT (?laureateUniversityName AS ?UNIVERSITY_NAME) (?universityCountry AS ?UNIVERSITY_SITUATED_IN) (?researchRating AS ?RESEARCH_RATING)
+WHERE
+{
+  ?laureate  foaf:name 'lamb, we'.
+  ?laureate exont:affiliatedToUniversity ?laureateUniversity.
+  ?laureateUniversity exont:universityName ?laureateUniversityName.
+  ?university exont:situatedIn ?countryObj.
+  ?countryObj dbo:name ?universityCountry.
+  ?university exont:universityName ?universityname.
+  FILTER ( regex (str(?universityname), str(?laureateUniversityName), "i") ).
+  ?university exont:hasRank ?universityRankObj.
+  ?universityRankObj exont:definedBy ?universityRankDefinedByObj.
+  ?universityRankDefinedByObj exont:researchRating ?researchRating.
+}
+```
+
+#### 6. Identifying relation between a country’s GDP and total number of Gold Medals won by that country in Olympics in the specified year.
+
+```
+SELECT (?countryName AS ?COUNTRY) (count(?athlete) AS ?GOLD_MDALS) (?gdp AS ?Gross_Domestic_Product)
+WHERE
+{
+  ?athlete exont:medalWon 'Gold'.
+  ?athlete exont:participatedIn ?olympicEventObj.
+  ?olympicEventObj exont:yearOfEvent 2004.
+  ?athlete  dbo:sportCountry ?athleteSportCountryObj.
+  ?athleteSportCountryObj dbo:name ?countryName.
+  {
+    SELECT ?gdp ?countryName
+		WHERE {
+      ?country dbo:name ?countryName.
+      ?country exont:developmentIndicator ?devParam.
+      ?devParam exont:statName 'GDP (current US$)'.
+      ?devParam exont:statYear 2004.
+      ?devParam exont:statValue ?gdp.
+    }
+	}
+} GROUP BY ?countryName ?gdp ORDER BY DESC (count(?athlete))
+```
+
+#### 7. Total number of medals won by a country in the toughest sport.
+
+```
+SELECT (COUNT(?athlete) AS ?TOTAL_MEDALS) (?athleteSportCountryName AS ?COUNTRY) (?toughSportName AS ?SPORTS_DISCIPLINE)
+WHERE {
+  ?toughSport exont:difficultyLevel 1.
+  ?toughSport dbo:name ?toughSportName.
+  ?olympicEvent exont:hasSportDiscipline ?toughSportName.
+  ?athlete exont:participatedIn ?olympicEvent.
+  ?athlete exont:medalWon 'Gold'.
+  ?athlete dbo:sportCountry ?athleteSportCountryObj.
+  ?athleteSportCountryObj dbo:name ?athleteSportCountryName.
+} GROUP BY ?athleteSportCountryName ?toughSportName ORDER BY DESC (COUNT(?athlete))
+```
+
+#### 8. Male female ratio of Olympic winners based on specified level of difficulty of the sport. (1 Being the toughest sport)
+
+```
+SELECT  (COUNT(?athlete) AS ?NUMBER_OF_WINNERS) (?sex AS ?GENDER) (?toughSportName AS ?SPORTS_DISCIPLINE)
+WHERE {
+  ?toughSport exont:difficultyLevel 3.
+  ?toughSport dbo:name ?toughSportName.
+  ?olympicEvent exont:hasSportDiscipline ?toughSportName.
+  ?olympicEvent exont:yearOfEvent 2004.
+  ?athlete exont:participatedIn ?olympicEvent.
+  ?athlete dbo:sex ?sex.
+} GROUP BY ?sex ?toughSportName
+```
+
+#### 9. What is the total number of Olympics medals won by a country in a given year?
+
+```
+SELECT  (COUNT(?athlete) AS ?TOTAL_MEDALS)
+WHERE {
+  ?athlete exont:medalWon 'Gold'.
+  ?athlete exont:participatedIn ?olympicEvent.
+  ?olympicEvent exont:yearOfEvent 2004.
+  ?athlete dbo:sportCountry ?sportCountry.
+  ?sportCountry exont:countryCode ?countryCode.
+  {
+    SELECT DISTINCT ?countryCode
+    WHERE {
+      ?country dbo:name 'China'.
+      ?country exont:countryCode ?countryCode.
+    }
+  }
+}
+```
+
+#### 10. Comparison between the research rating and the total number of nobel laureates of top 20 universities in the world.
+
+```
+SELECT  (?universityName AS ?UNIVERSITY_NAME)  (?universityWorldRank AS ?WORLD_RANK) (?researchRating AS ?RESEARCH_RATING) (COUNT(?laureate) AS ?NOBEL_LAUREATE_COUNT) (?countryName AS ?COUNTRY)
+WHERE {
+	?university exont:hasRank ?universityRankObj.
+	?universityRankObj exont:worldRank ?universityWorldRank.
+  FILTER (?universityWorldRank < 21).
+
+  ?universityRankObj exont:definedBy ?universityRankParamObj.
+  ?universityRankParamObj exont:researchRating ?researchRating.
+  ?university exont:universityName ?universityName.
+
+  ?laureate exont:affiliatedToUniversity ?laureateUniversityObj.
+  ?laureateUniversityObj exont:universityName ?laureateUniversityName.
+  FILTER ( regex (str(?universityName), str(?laureateUniversityName), "i") ).
+
+  ?university exont:situatedIn ?countryObj.
+  ?countryObj dbo:name ?countryName.
+} GROUP BY ?universityName ?universityWorldRank ?researchRating ?countryName ORDER BY (?universityWorldRank)
+```
+
+</span>
