@@ -1,34 +1,729 @@
 <h2 id="r2rml" class="list">R2RML<span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 
 <span class="markdown">
-  #### Physics Nobel Laureates Dataset
+  #### R2RML Mapping for Physics Nobel Laureates dataset
 
   ```xml
+  @prefix rr: <http://www.w3.org/ns/r2rml#> .
+  @prefix rrf: <http://kdeg.scss.tcd.ie/ns/rrf#> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix exont: <http://countrystats.org/ontology/> .
+  @prefix dbo: <http://dbpedia.org/ontology/> .
+  @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+  <#TriplesMapTriplesMapNobelLaureate>
+  rr:logicalTable [
+    rr:tableName "PhysicsWinners";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/nobellaureate/{ID}";
+      rr:class exont:NobelLaureate;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:laureateId;
+    ];
+
+     rr:objectMap [
+      rr:column "LAUREATE_ID";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant foaf:name;
+    ];
+
+     rr:objectMap [
+      rr:column "LAUREATE_NAME";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:nobelPrizeYear;
+    ];
+
+     rr:objectMap [
+      rr:column "PRIZE_YEAR";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:affiliatedToUniversity;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapUniversity>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:hasPublished;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapPaper>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapPaper>
+  rr:logicalTable [
+    rr:tableName "PhysicsWinners";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/publicationpaper/{ID}";
+      rr:class exont:PublicationPaper;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:paperId;
+    ];
+
+     rr:objectMap [
+      rr:column "PAPER_ID";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:title;
+    ];
+
+     rr:objectMap [
+      rr:column "TITLE";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:doi;
+    ];
+
+     rr:objectMap [
+      rr:column "DOI";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:journalName;
+    ];
+
+     rr:objectMap [
+      rr:column "JOURNAL";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:publicationYear;
+    ];
+
+     rr:objectMap [
+      rr:column "PUB_YEAR";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:isNobelWinningPaper;
+    ];
+
+     rr:objectMap [
+      rr:column "IS_PRIZE_WINNING_PAPER";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapUniversity>
+  rr:logicalTable [
+    rr:tableName "PhysicsWinners";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/university/{ID}";
+      rr:class exont:University;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:universityName;
+    ];
+
+     rr:objectMap [
+      rr:column "AFFILIATION";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
   ```
 
-  #### University Ranking Dataset
+  #### R2RML Mapping for University Ranking Dataset
 
   ```xml
+  @prefix rr: <http://www.w3.org/ns/r2rml#> .
+  @prefix rrf: <http://kdeg.scss.tcd.ie/ns/rrf#> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix exont: <http://countrystats.org/ontology/> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix dbo: <http://dbpedia.org/ontology/> .
+  @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+  <#TriplesMapTriplesMapUniversity>
+  rr:logicalTable [
+    rr:tableName "UniversityRankingDataset2016";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://countrystats.org/ontology/university/{ID}";
+      rr:class exont:University;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:universityName;
+    ];
+
+     rr:objectMap [
+      rr:column "UNIVERSITY_NAME";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:situatedIn;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapCountry>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:hasRank;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapRank>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapCountry>
+  rr:logicalTable [
+    rr:tableName "UniversityRankingDataset2016";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://countrystats.org/ontology/country/{ID}";
+      rr:class dbo:Country;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:name;
+    ];
+
+     rr:objectMap [
+      rr:column "COUNTRY";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapRank>
+  rr:logicalTable [
+    rr:tableName "UniversityRankingDataset2016";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/rank/{ID}";
+      rr:class exont:Rank;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:worldRank;
+    ];
+
+     rr:objectMap [
+      rr:column "WORLD_RANK";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:rankingYear;
+    ];
+
+     rr:objectMap [
+      rr:column "YEAR";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:definedBy;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapRankParameters>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapRankParameters>
+  rr:logicalTable [
+    rr:tableName "UniversityRankingDataset2016";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/univrankparams/{ID}";
+      rr:class exont:RankParamSet;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:numberOfStudents;
+    ];
+
+     rr:objectMap [
+      rr:column "NUM_STUDENTS";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:teachingRating;
+    ];
+
+     rr:objectMap [
+      rr:column "TEACHING_RATING";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:interOutlookRating;
+    ];
+
+     rr:objectMap [
+      rr:column "INTER_OUTLOOK_RATING";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:researchRating;
+    ];
+
+     rr:objectMap [
+      rr:column "RESEARCH_RATING";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:citationsRating;
+    ];
+
+     rr:objectMap [
+      rr:column "CITATIONS_RATING";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:industryIncomeRating;
+    ];
+
+     rr:objectMap [
+      rr:column "INDUSTRY_INCOME_RATING";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:studentToStaffRatio;
+    ];
+
+     rr:objectMap [
+      rr:column "STUDENTTOSTAFF_RATIO";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:percentageInterStudents;
+    ];
+
+     rr:objectMap [
+      rr:column "PERCENTAGE_INTER_STUDENTS";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:percentageFemaleStudents;
+    ];
+
+     rr:objectMap [
+      rr:column "PERCENTAGE_FEMALE_STUDENTS";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  .
   ```
 
-  #### Country Statistics Dataset
-
+  #### R2RML Mapping for Country Statistics Dataset
 
   ```xml
+  @prefix rr: <http://www.w3.org/ns/r2rml#> .
+  @prefix rrf: <http://kdeg.scss.tcd.ie/ns/rrf#> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix dbo: <http://dbpedia.org/ontology/> .
+  @prefix exont: <http://countrystats.org/ontology/> .
 
+  <#TriplesMapTriplesMapCountry>
+  rr:logicalTable [
+    rr:tableName "CountryStatsMerged";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/country/{ID}";
+      rr:class dbo:Country;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:name;
+    ];
+
+     rr:objectMap [
+      rr:column "COUNTRY_NAME";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:countryCode;
+    ];
+
+     rr:objectMap [
+      rr:column "COUNTRY_CODE";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:developmentIndicator;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapStatistics>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapStatistics>
+  rr:logicalTable [
+    rr:tableName "CountryStatsMerged";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/statistics/{ID}";
+      rr:class exont:Statistics;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:statYear;
+    ];
+
+     rr:objectMap [
+      rr:column "YEAR";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:statValue;
+    ];
+
+     rr:objectMap [
+      rr:column "VALUE";
+      rr:termType rr:Literal;
+      rr:datatype xsd:float;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:statName;
+    ];
+
+     rr:objectMap [
+      rr:column "INDICATOR_NAME";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
   ```
 
-  #### Olympic Medalists Dataset
+  #### R2RML Mapping for Olympic Medalists Dataset
 
   ```xml
+  @prefix rr: <http://www.w3.org/ns/r2rml#> .
+  @prefix rrf: <http://kdeg.scss.tcd.ie/ns/rrf#> .
+  @prefix exont: <http://countrystats.org/ontology/> .
+  @prefix dbo: <http://dbpedia.org/ontology/> .
 
+  <#TriplesMapTriplesMapInterOlympicCountryCodes>
+  rr:logicalTable [
+    rr:tableName "InterOlympicCountryCodes";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/country/{ID}";
+      rr:class dbo:Country;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:countryCode;
+    ];
+
+     rr:objectMap [
+      rr:column "INTOLYMPICCOMMITTEECODE";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:name;
+    ];
+
+     rr:objectMap [
+      rr:column "COUNTRY";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
+
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix dbo: <http://dbpedia.org/ontology/> .
+  @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+  @prefix exont: <http://countrystats.org/ontology/> .
+
+  <#TriplesMapTriplesMapOlympicMedalist_From2000To2008>
+  rr:logicalTable [
+    rr:tableName "OlympicMedalist_From2000To2008";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/olympicevent/{ID}";
+      rr:class dbo:OlympicEvent;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:hasSportDiscipline;
+    ];
+
+     rr:objectMap [
+      rr:column "DISCIPLINE";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:hostedIn;
+    ];
+
+     rr:objectMap [
+      rr:column "CITY";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:yearOfEvent;
+    ];
+
+     rr:objectMap [
+      rr:column "EDITION";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  .
+
+  <#TriplesMapTriplesMapAthlete>
+  rr:logicalTable [
+    rr:tableName "OlympicMedalist_From2000To2008";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/athlete/{ID}";
+      rr:class dbo:Athlete;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:medalWon;
+    ];
+
+     rr:objectMap [
+      rr:column "MEDAL";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:sex;
+    ];
+
+     rr:objectMap [
+      rr:column "GENDER";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:sportCountry;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapInterOlympicCountryCodes>;
+      rr:joinCondition [
+       rr:child "NOC";
+       rr:parent "INTOLYMPICCOMMITTEECODE";
+     ];
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:participatedIn;
+    ];
+
+     rr:objectMap [
+      rr:parentTriplesMap <#TriplesMapTriplesMapOlympicMedalist_From2000To2008>;
+      rr:joinCondition [
+       rr:child "ID";
+       rr:parent "ID";
+     ];
+    ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant foaf:name;
+    ];
+
+     rr:objectMap [
+      rr:column "ATHLETE";
+      rr:termType rr:Literal;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:winningEvent;
+    ];
+
+     rr:objectMap [
+      rr:column "EVENT";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
   ```
 
-  #### Toughest Sport Ranking Dataset
+  #### R2RML Mapping for Toughest Sport Ranking Dataset
 
   ```xml
+  @prefix rr: <http://www.w3.org/ns/r2rml#> .
+  @prefix rrf: <http://kdeg.scss.tcd.ie/ns/rrf#> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix dbo: <http://dbpedia.org/ontology/> .
+  @prefix exont: <http://countrystats.org/ontology/> .
 
+  <#TriplesMapTriplesMapToughestSportRanking>
+  rr:logicalTable [
+    rr:tableName "ToughestSportRanking";
+  ];
+
+   rr:subjectMap [
+      rr:template "http://www.countrystats.org/ontology/sportsevent/{ID}";
+      rr:class dbo:SportsEvent;
+   ];
+
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant exont:difficultyLevel;
+    ];
+
+     rr:objectMap [
+      rr:column "RANK";
+      rr:termType rr:Literal;
+      rr:datatype xsd:integer;
+     ];
+  ];
+  rr:predicateObjectMap [
+    rr:predicateMap [
+      rr:constant dbo:name;
+    ];
+
+     rr:objectMap [
+      rr:column "SPORT";
+      rr:termType rr:Literal;
+     ];
+  ];
+  .
   ```
 </span>
